@@ -4,7 +4,7 @@
 
 Handout date: 09/16/2022
 
-Submission deadline: 09/23/2022, 11:59PM EST
+Submission deadline: ~~09/23/2022~~ 09/25/2022, 11:59PM EST
 
 Demo date: TBA, via Zoom appointments
 
@@ -73,6 +73,7 @@ int main(int argc, char* argv[]) {
         MyImageClass image1("path_to_image_on_disk/pic.ppm");
         
         // Another possible way to load it from the disk in the "C++ way"
+        // You do not need to implement this, it is sufficient if your class just loads files passed to the constructor!
         MyImageClass image2;
         ifstream imageFile1;
         // If the file is a PPM type 5 or 6 (binary)
@@ -85,7 +86,8 @@ int main(int argc, char* argv[]) {
         // You can do this way
         image1.save("path_to_disk/changed_pic.ppm");
 
-        //You also can do it in the "C++ way"
+        // You also can do it in the "C++ way"
+        // You do not need to implement this, it is sufficient if your class just has a "save" function for storing files!
         ofstream imageFile;
         imageFile.open("path_to_disk/changed_pic.ppm");
         if (imageFile.is_open()) {
@@ -134,7 +136,7 @@ int main(int argc, char* argv[]) {
         // Addition assignment plus mirroring on X axis
         MyImageClass image4;
         image4 += image3;
-        image4.mirrorX();
+        image4.mirrorX(); // just an example, no need to implement a mirrorX function
 
         image4.save("path_to_disk/mirror_pic.ppm");
 
@@ -157,10 +159,10 @@ The result of subtracting from the Mandrill image, the Tandon Color image.
 
 You must pay attention to the following issues:
 
-* The addition of images can generate results greater than the maximum value of a pixel (in a PPM file, the maximum value is equal to 255). You must allow this behavior for the \texttt{add} operator 
+* The addition of images can generate results greater than the maximum value of a pixel (in a PPM file, the maximum value is equal to 255). You must allow this behavior for the **add** operator 
 (operator+). However, when using the addition assignment operator (operator+=), you must average the result of adding the two pixels values.
 
-* The subtracting operator can produce pixels with values less than zero (0). You must take care of this issue (hint: \texttt{std::clamp}).
+* The subtracting operator can produce pixels with values less than zero (0). You must take care of this issue (hint: clamp the value).
 
 * The multiplication of pixels by a scalar can produce overflows and underflows of pixels values.
 
